@@ -20,13 +20,9 @@ ActiveRecord::Schema.define(version: 20160409154915) do
     t.string   "name"
     t.string   "description"
     t.float    "price"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
     t.integer  "quantity"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

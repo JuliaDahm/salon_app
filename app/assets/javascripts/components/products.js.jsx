@@ -35,6 +35,7 @@ class Products extends React.Component{
   }
 
   addProduct(product) {
+    debugger;
     this.setState({ products: [product, ...this.state.products]});
   }
 
@@ -43,7 +44,7 @@ class Products extends React.Component{
     let products = [];
     if(this.props.products){
       products = this.props.products.map( product => {
-        return(<product key={`product-${product.id}`} {...product} delete={this.deleteProduct} updateProduct={this.updateProduct} />);
+        return(<Product key={`product-${product.id}`} {...product} delete={this.deleteProduct} updateProduct={this.updateProduct} />);
       });
     }
     return(

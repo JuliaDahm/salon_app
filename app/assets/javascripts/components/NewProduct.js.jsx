@@ -8,13 +8,16 @@ class NewProduct extends React.Component {
     e.preventDefault();
     let name = this.refs.name;
     let description = this.refs.description;
+    let price = this.refs.price;
+    let quantity = this.refs.quantity;
     $.ajax({
       url: '/products',
       type: 'POST',
-      data: { Product: {name: name.value, description: description.value } },
+      data: { product: {name: name.value, description: description.value, price: price.value, quantity: quantity.value  } },
       dataType: 'JSON',
-    }).success( Product => {
-      this.props.addProduct(Product);
+    }).success( product => {
+      debugger;
+      this.props.addProduct(product);
     }).error( errors => {
       console.log(errors)
     }).complete( () => {
@@ -30,6 +33,8 @@ class NewProduct extends React.Component {
         <form onSubmit={this.addProduct} >
           <input placeholder="Name" ref="name" required={true} />
           <input placeholder="Description" ref="description" />
+          <input placeholder="price" ref="price" />
+          <input placeholder="quantity" ref="quantity" />
           <button className="btn">Add</button>
         </form>
       </div>
