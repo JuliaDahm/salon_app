@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
 
   end
 
@@ -49,4 +50,5 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:prodcut).permit(:name, :description, :price, :picture, :quantity)
+  end
 end
