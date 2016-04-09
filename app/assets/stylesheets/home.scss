@@ -1,4 +1,37 @@
-.body {
-  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/1f/41/39/1f413990e3a81f724177ea20d0c85aeb.jpg"), no-repeat;
-  background-size: 1000px;
+.background-picture img {
+  width: 100%;
+  position: relative;
+}
+
+.tagline {
+  position: absolute;
+  top: 200px;
+  left: 0;
+}
+
+.box {
+  background: #7f7f7f;
+  background: rgba(128, 155, 191,0.9);
+  border: 5px solid #fff;
+  padding-bottom: 20px;
+  margin-left: 290px;
+  margin-top: 100px;
+  border-radius: 5%;
+  width: 50%;
+}
+
+h1 {
+  margin: 7%;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'IM Fell DW Pica', serif;
+  font-size: 55px;
+}
+
+a {
+  position: absolute;
+}
+
+.btn {
+  background-color: #543D82;
 }
