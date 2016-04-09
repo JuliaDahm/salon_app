@@ -1,24 +1,60 @@
 class Products extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { products: this.props.products };
+    this.state = { products: this.props.products, loaded: false };
     this.addProduct = this.addProduct.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
+    this.displayProducts = this.displayProducts.bind(this);
   }
 
-  updateProduct(id, product) {
+  addProduct(e) {
+    e.preventDefault();
+    let name = this.refs.name;
+    let description = this.refs.description;
+    let price = this.refs.price;
+    let quantity = this.refs.quantity;
     $.ajax({
-      url: `/product/${id}`,
+      url: '/products',
+      type: 'POST',
+      data: { product: {name: name.value, description: description.value, price: price.value, quantity: quantity.value  } },
+      dataType: 'JSON',
+    }).success( product => {
+      let products = this.state.products;
+      products.push(product);
+      this.setState({products: products});
+      
+    }).error( errors => {
+      console.log(errors)
+    }).complete( () => {
+      name.value = null;
+      description.value = null;
+    });
+  }
+
+  displayProducts() {
+    return this.state.products.map(productData => {
+      let product = productData.product
+      let key = `product=${product.id}`;
+      return(<Product key={key} url={productData.url} updateProduct={this.updateProduct} addProduct={this.addProduct} deleteUser={this.deleteProduct} product={product} {...product} />);
+    })
+  }
+
+  updateProduct(product) {
+    $.ajax({
+      url: `/products/${product.id}`,
       type: 'PUT',
       data: { product: {...product}},
       dataType: 'JSON'
     }).success( product => {
+      debugger
       let products = this.state.products;
       let editproduct = products.find( b => b.id === product.id)
       editproduct.name = product.name;
       editproduct.description = product.description;
-      setState({ products: products });
+      editproduct.price = product.price;
+      editproduct.quantity = product.quantity;
+      this.setState({ products: products });
     });
   }
 
@@ -34,24 +70,38 @@ class Products extends React.Component{
     });
   }
 
-  addProduct(product) {
-    debugger;
-    this.setState({ products: [product, ...this.state.products]});
-  }
+  // addProduct(product) {
+  //   this.setState({ products: [product, ...this.state.products]});
+  // }
 
   render() {
 
+
     let products = [];
     if(this.props.products){
-      products = this.props.products.map( product => {
+      products = this.state.products.map( product => {
         return(<Product key={`product-${product.id}`} {...product} delete={this.deleteProduct} updateProduct={this.updateProduct} />);
       });
     }
     return(
-      <div className="row">
-        <NewProduct addProduct={this.addProduct} />
-        <h2 className="center">products</h2>
-        {products}
+      <div>
+        <div className="col s12 m10 offset-m1 container">
+          <h4 className="center">Add A New Product</h4>
+          <form onSubmit={this.addProduct} >
+            <input placeholder="Name" ref="name" required={true} />
+            <input placeholder="Description" ref="description" />
+            <input placeholder="price" ref="price" />
+            <input placeholder="quantity" ref="quantity" />
+              <div className="center">
+                <button type='submit' className="center btn-large">Add</button>
+              </div>
+          </form>
+        </div>
+        <hr/>
+        <div className="row">
+          <h2 className="center">Products</h2>
+          {products}
+        </div>
       </div>
     );
   }
