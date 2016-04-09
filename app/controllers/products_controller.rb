@@ -9,22 +9,27 @@ class ProductsController < ApplicationController
   def show
   end
 
-  def new
-    @product = Product.new(product_params)
+
+  def create
+    product = Product.new(product_params)
     if product.save
-      render :show
+      render json: product
     else
-      render :new
+      render json: { errors: product.errors.full_messages }
     end
   end
 
-  def update
-    if @user.update(user_params)
-      render :show
-    else
-      render :edit
-    end
+  def edit
   end
+
+  def update
+      product = Product.find(params[:id])
+      if product.update(product_params)
+        render json: product
+      else
+        render json: { errors: product.errors.full_messages }
+      end
+    end
 
   def delete
     products_name = @product.name
@@ -39,6 +44,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:prodcut).permit(:name, :description, :price, :picture, :quantity)
+    params.require(:product).permit(:name, :description, :price, :picture, :quantity)
   end
 end
