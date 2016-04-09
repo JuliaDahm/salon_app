@@ -108,6 +108,29 @@ class Products extends React.Component{
             {products}
           </div>
         </div>
+
+    return(
+      <div>
+        <div className="row">
+          <br />
+          <h2 className="center products-title">Products</h2>
+          {products}
+        </div>
+        <br />
+        <hr />
+        <div className="col s12 m10 offset-m1 container">
+          <h4 className="center addproduct">Add A New Product</h4>
+          <form className='addproductform' onSubmit={this.addProduct} >
+            <input className='placeholder' placeholder="Name" ref="name" required={true} />
+            <input placeholder="Description" className='placeholder' ref="description" />
+            <input placeholder="price" ref="price" className='placeholder' />
+            <input placeholder="quantity" ref="quantity" className='placeholder' />
+              <div className="center">
+                <button type='submit' className="center btn-large">Add</button>
+              </div>
+          </form>
+        </div>
+>>>>>>> 492acfcec3757e746b960c1a59a04ef106db8f57
       </div>
 
       );
