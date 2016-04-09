@@ -34,11 +34,18 @@ class Product extends React.Component {
             <span className="card-title">{ this.props.name }</span>
             <p>{ this.props.description }</p>
           </div>
+        if(user.employee) {
           <div className="card-action">
             <button onClick={ () => this.props.delete(this.props.id)} className="btn red">Delete</button>
             <button onClick={this.toggleEdit} className="btn blue">Edit</button>
             <button onClick={this.showProduct} className="btn">Show</button>
           </div>
+        } else{
+          <div className="card-action">
+            <button onClick={this.showProduct} className="btn">Show</button>
+            <button onClick={this.buyProduct} className="btn green darken-2">Buy</button>
+          </div>
+        }
         </div>
       </div>
     );

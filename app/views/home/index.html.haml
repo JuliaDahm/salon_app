@@ -1,0 +1,4 @@
+-if current_user
+  = react_component 'Users', { users: @users, employee: current_user.employee }
+-else
+  = react_component 'Users', { users: @users, employee: false}
