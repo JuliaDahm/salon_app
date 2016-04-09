@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409154915) do
+ActiveRecord::Schema.define(version: 20160409231151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,13 @@ ActiveRecord::Schema.define(version: 20160409154915) do
     t.string   "name"
     t.string   "description"
     t.float    "price"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
     t.integer  "quantity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,8 +37,6 @@ ActiveRecord::Schema.define(version: 20160409154915) do
     t.datetime "avatar_updated_at"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
-    t.boolean  "employee",               default: false
-    t.boolean  "present",                default: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -45,6 +47,8 @@ ActiveRecord::Schema.define(version: 20160409154915) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.boolean  "employee",               default: false
+    t.boolean  "present",                default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

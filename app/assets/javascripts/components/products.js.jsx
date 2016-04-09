@@ -83,26 +83,44 @@ class Products extends React.Component{
         return(<Product key={`product-${product.id}`} {...product} delete={this.deleteProduct} updateProduct={this.updateProduct} />);
       });
     }
-    return(
-      <div>
-        <div className="col s12 m10 offset-m1 container">
-          <h4 className="center">Add A New Product</h4>
-          <form onSubmit={this.addProduct} >
-            <input placeholder="Name" ref="name" required={true} />
-            <input placeholder="Description" ref="description" />
-            <input placeholder="price" ref="price" />
-            <input placeholder="quantity" ref="quantity" />
-              <div className="center">
-                <button type='submit' className="center btn-large">Add</button>
-              </div>
-          </form>
+    if (this.props.current_user.employee) {
+      return(
+        <div>
+        <div>
+          <div className="col s12 m10 offset-m1 container">
+            <h4 className="center">Add A New Product</h4>
+            <form onSubmit={this.addProduct} >
+              <input placeholder="Name" ref="name" required={true} />
+              <input placeholder="Description" ref="description" />
+              <input placeholder="price" ref="price" />
+              <input placeholder="quantity" ref="quantity" />
+                <div className="center">
+                  <button type='submit' className="center btn-large">Add</button>
+                </div>
+            </form>
+          </div>
         </div>
-        <hr/>
-        <div className="row">
-          <h2 className="center">Products</h2>
-          {products}
+
+        <div>
+          <hr/>
+          <div className="row">
+            <h2 className="center">Products</h2>
+            {products}
+          </div>
         </div>
       </div>
-    );
+
+      );
+    } else {
+      return(
+        <div>
+          <hr/>
+          <div className="row">
+            <h2 className="center">Products</h2>
+            {products}
+          </div>
+        </div>
+      );
+    }
   }
 }
