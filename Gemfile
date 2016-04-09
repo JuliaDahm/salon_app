@@ -22,7 +22,7 @@ gem 'react-rails'
 gem 'materialize-sass'
 
 gem 'paperclip'
-
+gem 'omniauth-facebook'
 
 
 # Use jquery as the JavaScript library
