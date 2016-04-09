@@ -21,13 +21,10 @@ gem 'react-rails'
 
 gem 'materialize-sass'
 
+gem 'will_paginate', '~> 3.0.6'
 gem 'paperclip'
 
-
-
 gem 'haml-rails'
-
-
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
