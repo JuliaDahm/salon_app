@@ -16,6 +16,17 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+<<<<<<< HEAD
+=======
+
+
+  def create
+
+
+  end
+
+
+>>>>>>> bf53b2b6c53dc352002c4f9f8e883f22bd19e940
   def update
     if @user.update(user_params)
       render :show
