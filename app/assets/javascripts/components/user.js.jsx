@@ -75,6 +75,8 @@ class User extends React.Component {
         <div className="card blue-grey darken-1">
           <input placeholder={this.props.name} defaultValue={this.props.name} ref="name" required={true} />
           <input placeholder={this.props.email} defaultValue={this.props.email} ref="email"/>
+          <input type='checkbox' defaultValue={this.props.employee} ref ="employee"/>
+          <input type='checkbox' defaultValue={this.props.present} ref ="employee"/>
 
           <div className="card-action">
             <button onClick={this.toggleEdit} className="btn blue">Cancel</button>
