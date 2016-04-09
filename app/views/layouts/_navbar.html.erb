@@ -3,8 +3,9 @@
     <a href="#!" class="brand-logo">Salon-assist</a>
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-        <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+        <li><a href="/products/:id"><i class="material-icons">shop</i></a></li>
         <li><a href="mobile.html"><i class="material-icons">shopping_cart</i></a></li>
+        <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
       <% else user_signed_in? %>
         <li>
           <%= link_to 'LOGIN', new_user_session_path %>
