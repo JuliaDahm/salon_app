@@ -16,17 +16,14 @@ class ProductsController < ApplicationController
     else
       render :new
     end
-
   end
 
-  def edit
-
-  end
 
   def create
 
 
   end
+
 
   def update
     if @user.update(user_params)
