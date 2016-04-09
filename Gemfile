@@ -23,6 +23,8 @@ gem 'materialize-sass'
 
 gem 'paperclip'
 
+gem 'haml-rails'
+
 
 
 # Use jquery as the JavaScript library
@@ -51,6 +53,7 @@ gem 'rspec-rails'
 gem 'shoulda-matchers'
 gem 'simplecov'
 gem 'factory_girl'
+
 
 end
 

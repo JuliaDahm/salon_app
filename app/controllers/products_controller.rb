@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  
-  
+  before_action :product, only: [:show, :edit, :update, :destroy] 
+
   def index
     @product = Product.all
   end
@@ -9,18 +9,36 @@ class ProductsController < ApplicationController
   end
 
   def new
+
+    @product = Product.new(product_params)
+    if product.save
+      render :show
+    else
+      render :new
+    end
+
   end
 
   def edit
+
   end
 
   def create
+
   end
 
   def update
+    if @user.update(user_params)
+      render :show
+    else
+      render :edit
+    end
   end
 
   def delete
+    products_name = @product.name
+    @product.destroy
+    render :index
   end
 
   private
