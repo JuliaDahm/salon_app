@@ -1,2 +1,11 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+class Product extends React.Component {
+  constructor(props){
+    super(props);
+    this.toggleEdit = this.toggleEdit.bind(this)
+  }
+
+
+  showProduct() {
+    
+  }
+}

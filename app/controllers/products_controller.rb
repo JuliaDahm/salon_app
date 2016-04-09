@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-
     @product = Product.new(product_params)
     if product.save
       render :show
@@ -17,7 +16,6 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-  
   def update
     if @user.update(user_params)
       render :show
