@@ -18,9 +18,9 @@ class Product extends React.Component {
   show() {
     return(
       <div className="col s12 m4">
-        <div className="card light-blue darken-4">
+        <div className="card blue darken-2">
           <div className="card-content white-text">
-            <span className="card-title">Name: { this.props.name }</span>
+            <span className="card-title center">Name: { this.props.name }</span>
             <p>Description: { this.props.description }</p>
             <p>Price: ${ this.props.price }</p>
             <p>Quantity: { this.props.quantity }</p>
@@ -32,7 +32,6 @@ class Product extends React.Component {
           </div>
         } else{
           <div className="card-action">
-            <button onClick={this.showProduct} className="btn">Show</button>
             <button onClick={this.buyProduct} className="btn green darken-2">Buy</button>
           </div>
         }
@@ -56,13 +55,13 @@ class Product extends React.Component {
     return(
       <div className="col s12 m4">
         <div className="card light-blue darken-4 card-content white-text">
-          <p className="edit-form">Name: <input placeholder={this.props.name} defaultValue={this.props.name} ref="name" required={true} /> </p>
-          <p className="edit-form">Description: <input placeholder={this.props.description} defaultValue={this.props.description} ref="description" required={true} /> </p>
-          <p className="edit-form">Price: <input placeholder={this.props.price} defaultValue={this.props.price} ref="price" required={true} /> </p>
-          <p className="edit-form">Quantity: <input placeholder={this.props.quantity} defaultValue={this.props.quantity} ref="quantity" required={true} /> </p>
+          <p className="center edit-form">Name: <input placeholder={this.props.name} defaultValue={this.props.name} ref="name" required={true} /> </p>
+          <p className="center edit-form">Description: <input placeholder={this.props.description} defaultValue={this.props.description} ref="description" required={true} /> </p>
+          <p className="center edit-form">Price: <input placeholder={this.props.price} defaultValue={this.props.price} ref="price" required={true} /> </p>
+          <p className="center edit-form">Quantity: <input placeholder={this.props.quantity} defaultValue={this.props.quantity} ref="quantity" required={true} /> </p>
           <div className="card-action">
-            <button onClick={this.toggleEdit} className="btn blue">Cancel</button>
-            <button onClick={this.submitUpdate} className="btn">Save</button>
+            <button onClick={this.toggleEdit} className="center btn blue">Cancel</button>
+            <button onClick={this.submitUpdate} className="center btn">Save</button>
           </div>
         </div>
       </div>
