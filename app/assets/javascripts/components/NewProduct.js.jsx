@@ -9,14 +9,14 @@ class NewProduct extends React.Component {
     let name = this.refs.name;
     let description = this.refs.description;
     $.ajax({
-      url: '/Products',
+      url: '/products',
       type: 'POST',
       data: { Product: {name: name.value, description: description.value } },
       dataType: 'JSON',
     }).success( Product => {
       this.props.addProduct(Product);
     }).error( errors => {
-      alert(errors)
+      console.log(errors)
     }).complete( () => {
       name.value = null;
       description.value = null;

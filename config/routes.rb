@@ -4,4 +4,6 @@ Rails.application.routes.draw do
       }
   root 'products#index'
   resources :customers
+  resources :products
+  
 end

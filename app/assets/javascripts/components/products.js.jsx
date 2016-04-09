@@ -39,12 +39,16 @@ class Products extends React.Component{
   }
 
   render() {
-    let products = this.state.products.map( product => {
-      return(<product key={`product-${product.id}`} {...product} delete={this.deleteProduct} updateProduct={this.updateProduct} />);
-    });
+
+    let products = [];
+    if(this.props.products){
+      products = this.props.products.map( product => {
+        return(<product key={`product-${product.id}`} {...product} delete={this.deleteProduct} updateProduct={this.updateProduct} />);
+      });
+    }
     return(
       <div className="row">
-        <Newproduct addProduct={this.addProduct} />
+        <NewProduct addProduct={this.addProduct} />
         <h2 className="center">products</h2>
         {products}
       </div>
