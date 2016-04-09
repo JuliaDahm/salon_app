@@ -90,6 +90,7 @@ class Products extends React.Component{
           <h2 className="center products-title">Products</h2>
           {products}
         </div>
+        <br />
         <hr />
         <div className="col s12 m10 offset-m1 container">
           <h4 className="center addproduct">Add A New Product</h4>
