@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
-  root 'home#index'
+  root 'home#show'
   resources :customers
   resources :products
   
