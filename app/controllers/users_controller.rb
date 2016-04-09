@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action: user excep
   def index
   end
 
