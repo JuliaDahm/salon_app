@@ -3,7 +3,12 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @product = Product.all
+    @products = Product.all
+    respond_to do |format|
+      format.html 
+      format.json { render json: @products.to_json }
+    end
+    
   end
 
   def show
@@ -31,10 +36,12 @@ class ProductsController < ApplicationController
       end
     end
 
-  def delete
-    products_name = @product.name
-    @product.destroy
-    render :index
+  def destroy
+    if Product.find(params[:id]).destroy
+      render json: { id: params[:id].to_i}
+    else
+      render json: { errors: "Product can't be deleted try again"}
+    end
   end
 
   private
