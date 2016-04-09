@@ -23,6 +23,7 @@ gem 'materialize-sass'
 
 gem 'will_paginate', '~> 3.0.6'
 gem 'paperclip'
+gem 'omniauth-facebook'
 
 gem 'haml-rails'
 
