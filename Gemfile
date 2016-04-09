@@ -23,8 +23,7 @@ gem 'materialize-sass'
 
 gem 'paperclip'
 
-gem 'omniauth-facebook'
-=======
+
 
 gem 'haml-rails'
 

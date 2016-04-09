@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
+
 
   end
 
