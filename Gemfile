@@ -10,9 +10,20 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'devise'
+
+gem 'populator'
+gem 'faker'
+
+gem 'react-rails'
+
+gem 'materialize-sass'
+
+gem 'paperclip'
+
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -34,7 +45,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+gem 'pry'
+gem 'better_errors'
+gem 'rspec-rails'
+gem 'shoulda-matchers'
+gem 'simplecov'
+gem 'factory_girl'
+
 end
 
 group :development do

@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+
+  get 'employees/index'
+
+  get 'employees/show'
+
+  get 'employees/new'
+
+  get 'employees/edit'
+
+  get 'products/index'
+
+  get 'products/show'
+
+  get 'products/new'
+
+  get 'products/edit'
+
+  devise_for :users
+  root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
